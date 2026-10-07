@@ -1,0 +1,2115 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Formulir Ekstrakurikuler | 2026/2027</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    /* ==========================================================
+       FORMULIR PENDAFTARAN EKSTRAKURIKULER 2026/2027
+       SEMUA HTML + CSS + JAVASCRIPT DALAM 1 FILE
+       ========================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Poppins", sans-serif;
+      color: #20205d;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(137, 95, 255, .25), transparent 30%),
+        radial-gradient(circle at 90% 85%, rgba(76, 158, 255, .25), transparent 30%),
+        linear-gradient(135deg, #faf9ff, #eeeaff, #edf6ff);
+    }
+
+    /* ================= LATAR ================= */
+
+    .bg-shape {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .shape-one {
+      width: 420px;
+      height: 420px;
+      top: -230px;
+      left: -130px;
+      opacity: .7;
+      background: linear-gradient(135deg, #a88cff, #6e5bf4);
+    }
+
+    .shape-two {
+      width: 400px;
+      height: 400px;
+      right: -180px;
+      bottom: -180px;
+      opacity: .65;
+      background: linear-gradient(135deg, #7065fa, #c084fc);
+    }
+
+    .sparkle {
+      position: fixed;
+      z-index: 1;
+      color: #8568e9;
+      animation: floating 4s infinite ease-in-out;
+    }
+
+    .sparkle-one {
+      top: 25%;
+      left: 5%;
+      font-size: 32px;
+    }
+
+    .sparkle-two {
+      top: 17%;
+      right: 7%;
+      font-size: 25px;
+      animation-delay: 1s;
+    }
+
+    .sparkle-three {
+      bottom: 20%;
+      right: 5%;
+      font-size: 35px;
+      animation-delay: 2s;
+    }
+
+    @keyframes floating {
+      0%, 100% {
+        transform: translateY(0) rotate(0);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(15deg);
+      }
+    }
+
+    /* ================= KARTU ================= */
+
+    .page-container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px 25px 120px;
+    }
+
+    .form-card {
+      width: 100%;
+      max-width: 1200px;
+      padding: 45px 65px 30px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, .95);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, .88),
+        rgba(255, 255, 255, .65)
+      );
+      box-shadow:
+        0 30px 80px rgba(85, 69, 170, .18),
+        inset 0 1px 0 rgba(255, 255, 255, .9);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      animation: cardShow .8s ease;
+    }
+
+    @keyframes cardShow {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ================= HEADER ================= */
+
+    .form-header {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 45px;
+    }
+
+    .header-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 115px;
+      height: 115px;
+      border-radius: 30px;
+      color: #fff;
+      font-size: 52px;
+      background: linear-gradient(145deg, #9b72fa, #527df4);
+      box-shadow: 0 15px 35px rgba(101, 80, 225, .3);
+    }
+
+    .header-content {
+      padding-left: 28px;
+      border-left: 3px solid #7659ed;
+    }
+
+    .title-wrapper h1,
+    .title-wrapper h2 {
+      font-size: clamp(30px, 3.5vw, 48px);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+    }
+
+    .title-wrapper h1 {
+      color: #25265e;
+    }
+
+    .title-wrapper h2 {
+      background: linear-gradient(90deg, #8260f4, #b66bf3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .header-content p {
+      margin-top: 13px;
+      font-size: 14px;
+      color: #7379a7;
+    }
+
+    .academic-year {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 7px 14px;
+      border-radius: 30px;
+      background: rgba(120, 91, 239, .1);
+      color: #6651c8;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .motivation {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      line-height: 1.2;
+      color: #8464df;
+      font-style: italic;
+      transform: rotate(-5deg);
+    }
+
+    .motivation span {
+      font-size: 18px;
+    }
+
+    .motivation strong {
+      font-size: 20px;
+    }
+
+    .motivation i {
+      margin-top: 7px;
+      font-size: 17px;
+    }
+
+    /* ================= FORM ================= */
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px 40px;
+    }
+
+    .form-group label {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 9px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #25265f;
+    }
+
+    .label-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      color: #4e4eb7;
+      font-size: 18px;
+      background: linear-gradient(
+        135deg,
+        rgba(148, 115, 247, .15),
+        rgba(100, 151, 255, .12)
+      );
+    }
+
+    .required {
+      color: #ef4d60;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      pointer-events: none;
+      color: #5052b7;
+      font-size: 20px;
+    }
+
+    .select-arrow {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #5954b5;
+    }
+
+    input,
+    select {
+      width: 100%;
+      height: 60px;
+      padding: 0 55px;
+      border: 1.5px solid #cfd2fa;
+      border-radius: 17px;
+      outline: none;
+      background: rgba(255, 255, 255, .65);
+      color: #292b66;
+      font-family: inherit;
+      font-size: 13px;
+      box-shadow: 0 8px 20px rgba(86, 79, 175, .07);
+      transition: .3s ease;
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    input::placeholder {
+      color: #9ca2ca;
+    }
+
+    input:hover,
+    select:hover {
+      border-color: #aaa7ee;
+      background: rgba(255, 255, 255, .85);
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #7a64ee;
+      background: #fff;
+      box-shadow:
+        0 0 0 4px rgba(122, 100, 238, .1),
+        0 10px 25px rgba(85, 75, 190, .12);
+    }
+
+    /* ================= VALIDASI ================= */
+
+    .input-wrapper.valid input,
+    .input-wrapper.valid select {
+      border-color: #20b486;
+      box-shadow: 0 0 0 3px rgba(32, 180, 134, .08);
+    }
+
+    .input-wrapper.invalid input,
+    .input-wrapper.invalid select {
+      border-color: #ef4d60;
+      box-shadow: 0 0 0 3px rgba(239, 77, 96, .08);
+    }
+
+    .error-message {
+      display: block;
+      min-height: 17px;
+      margin-top: 5px;
+      padding-left: 5px;
+      color: #ef4d60;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    /* ================= BUTTON ================= */
+
+    .submit-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      width: 100%;
+      height: 68px;
+      margin-top: 25px;
+      border: 0;
+      border-radius: 20px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 700;
+      background: linear-gradient(100deg, #55a8fa, #695df2, #b76bf2);
+      box-shadow: 0 12px 30px rgba(103, 91, 235, .28);
+      cursor: pointer;
+      transition: .3s ease;
+    }
+
+    .submit-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 38px rgba(103, 91, 235, .36);
+    }
+
+    .submit-button:active {
+      transform: none;
+    }
+
+    .arrow-icon {
+      transition: .3s ease;
+    }
+
+    .submit-button:hover .arrow-icon {
+      transform: translateX(6px);
+    }
+
+    .form-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 20px;
+      color: #777caa;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .form-footer i {
+      color: #6d5bd4;
+      font-size: 16px;
+    }
+
+    :is(input, select, .submit-button):focus-visible {
+      outline: 3px solid #ffb703;
+      outline-offset: 2px;
+    }
+
+    /* ================= POPUP ================= */
+
+    .success-popup {
+      position: fixed;
+      left: 25px;
+      bottom: 25px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 320px;
+      padding: 17px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .95);
+      box-shadow: 0 20px 50px rgba(50, 45, 130, .22);
+      opacity: 0;
+      transform: translateY(130px);
+      pointer-events: none;
+      transition: .4s ease;
+    }
+
+    .success-popup.show {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    .success-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 21px;
+      background: linear-gradient(135deg, #5bd49a, #26b477);
+    }
+
+    .success-popup strong {
+      display: block;
+      color: #292b64;
+      font-size: 13px;
+    }
+
+    .success-popup p {
+      margin-top: 3px;
+      color: #888dae;
+      font-size: 11px;
+    }
+
+    #closePopup {
+      margin-left: auto;
+      border: 0;
+      background: none;
+      color: #8f92ae;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* ==========================================================
+       CHATBOT
+       ========================================================== */
+
+    :root {
+      --ungu: #6d4aff;
+      --ungu-tua: #2a2370;
+      --biru: #4f8cff;
+      --lavender: #f3f0ff;
+      --garis: #ece9ff;
+      --garis-input: #d6cfff;
+      --teks: #1e1b4b;
+      --fokus: #ffb703;
+      --gradasi: linear-gradient(120deg, var(--biru), var(--ungu));
+    }
+
+    :is(
+      #cb-btn,
+      #cb-send,
+      #cb-close,
+      #cb-input,
+      .cb-chip
+    ):focus-visible {
+      outline: 3px solid var(--fokus);
+      outline-offset: 2px;
+    }
+
+    /* Tombol chatbot */
+
+    #cb-launcher {
+      position: fixed;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+    }
+
+    #cb-label {
+      margin-right: -14px;
+      padding: 12px 22px 12px 20px;
+      border-radius: 999px 0 0 999px;
+      background: #e6e0ff;
+      color: var(--ungu-tua);
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(109, 74, 255, .18);
+    }
+
+    #cb-btn {
+      display: grid;
+      place-items: center;
+      width: 76px;
+      height: 76px;
+      border: 3px solid rgba(255, 255, 255, .8);
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 30% 25%,
+        #a99bff,
+        #6d4aff 60%,
+        #4a2fd1
+      );
+      box-shadow: 0 10px 28px rgba(109, 74, 255, .45);
+      cursor: pointer;
+      transition: transform .2s;
+    }
+
+    #cb-btn:hover {
+      transform: scale(1.06);
+    }
+
+    #cb-launcher.open #cb-label {
+      display: none;
+    }
+
+    /* Jendela chatbot */
+
+    #cb-window {
+      position: fixed;
+      right: 112px;
+      top: 50%;
+      z-index: 998;
+      display: flex;
+      flex-direction: column;
+      width: 370px;
+      max-width: calc(100vw - 32px);
+      height: 540px;
+      max-height: calc(100vh - 40px);
+      overflow: hidden;
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 20px 50px rgba(42, 35, 112, .28);
+      opacity: 0;
+      transform: translateY(calc(-50% + 16px)) scale(.96);
+      pointer-events: none;
+      transition: .25s;
+    }
+
+    #cb-window.show {
+      opacity: 1;
+      transform: translateY(-50%);
+      pointer-events: auto;
+    }
+
+    .cb-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--gradasi);
+      color: #fff;
+    }
+
+    .cb-head b {
+      display: block;
+      font-size: 16px;
+    }
+
+    .cb-head small {
+      opacity: .85;
+    }
+
+    .cb-avatar {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .22);
+      font-size: 22px;
+    }
+
+    #cb-close {
+      margin-left: auto;
+      border: 0;
+      background: none;
+      color: #fff;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    /* Pesan chatbot */
+
+    #cb-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px;
+      overflow-y: auto;
+      background: var(--lavender);
+    }
+
+    .msg {
+      max-width: 84%;
+      padding: 10px 14px;
+      border-radius: 16px;
+      font-size: 14.5px;
+      line-height: 1.45;
+      white-space: pre-line;
+      animation: masuk .2s;
+    }
+
+    .msg.bot {
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+    }
+
+    .msg.user {
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+      background: var(--ungu);
+      color: #fff;
+    }
+
+    .typing {
+      display: flex;
+      gap: 4px;
+      padding: 12px 14px;
+    }
+
+    .typing i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #a79df5;
+      animation: lompat 1s infinite;
+    }
+
+    .typing i:nth-child(2) {
+      animation-delay: .15s;
+    }
+
+    .typing i:nth-child(3) {
+      animation-delay: .3s;
+    }
+
+    @keyframes masuk {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes lompat {
+      0%, 60%, 100% {
+        transform: none;
+      }
+
+      30% {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* Pilihan cepat */
+
+    .cb-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      max-height: 96px;
+      padding: 8px 12px;
+      overflow-y: auto;
+      border-top: 1px solid var(--garis);
+      background: #fff;
+    }
+
+    .cb-chip {
+      padding: 5px 12px;
+      border: 1px solid var(--garis-input);
+      border-radius: 999px;
+      background: #f7f5ff;
+      color: var(--ungu-tua);
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .cb-chip:hover {
+      background: var(--ungu);
+      color: #fff;
+    }
+
+    /* Input chatbot */
+
+    .cb-form {
+      display: flex;
+      gap: 8px;
+      padding: 10px 12px;
+      border-top: 1px solid var(--garis);
+      background: #fff;
+    }
+
+    #cb-input {
+      flex: 1;
+      padding: 10px 16px;
+      border: 1px solid var(--garis-input);
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    #cb-send {
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--gradasi);
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 1050px) {
+      .form-card {
+        padding: 40px;
+      }
+
+      .motivation {
+        display: none;
+      }
+
+      .form-header {
+        grid-template-columns: auto 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .page-container {
+        padding: 20px 13px 110px;
+      }
+
+      .form-card {
+        padding: 28px 18px;
+        border-radius: 24px;
+      }
+
+      .form-header {
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 32px;
+      }
+
+      .header-icon {
+        width: 65px;
+        height: 65px;
+        border-radius: 18px;
+        font-size: 29px;
+        flex-shrink: 0;
+      }
+
+      .header-content {
+        padding-left: 0;
+        border-left: 0;
+      }
+
+      .title-wrapper h1,
+      .title-wrapper h2 {
+        font-size: 23px;
+        letter-spacing: -.8px;
+      }
+
+      .header-content p {
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .academic-year {
+        font-size: 10px;
+        padding: 5px 9px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .form-group label {
+        font-size: 12px;
+      }
+
+      .label-icon {
+        width: 31px;
+        height: 31px;
+        font-size: 15px;
+      }
+
+      input,
+      select {
+        height: 55px;
+        border-radius: 14px;
+        font-size: 12px;
+        padding-left: 47px;
+      }
+
+      .input-icon {
+        left: 16px;
+        font-size: 17px;
+      }
+
+      .submit-button {
+        height: 58px;
+        border-radius: 16px;
+        font-size: 14px;
+        margin-top: 20px;
+      }
+
+      .form-footer {
+        font-size: 9px;
+        line-height: 1.5;
+      }
+
+      .success-popup {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #cb-launcher {
+        right: 12px;
+      }
+
+      #cb-window {
+        right: 12px;
+        width: calc(100vw - 24px);
+      }
+
+      #cb-launcher.open {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= DEKORASI LATAR ================= -->
+
+  <div class="bg-shape shape-one"></div>
+  <div class="bg-shape shape-two"></div>
+
+  <div class="sparkle sparkle-one">✦</div>
+  <div class="sparkle sparkle-two">✦</div>
+  <div class="sparkle sparkle-three">✧</div>
+
+  <!-- ================= FORM ================= -->
+
+  <main class="page-container">
+
+    <section class="form-card">
+
+      <!-- Header -->
+      <div class="form-header">
+
+        <div class="header-icon">
+          <i class="bi bi-mortarboard-fill"></i>
+        </div>
+
+        <div class="header-content">
+
+          <div class="title-wrapper">
+            <h1>Formulir Pendaftaran</h1>
+            <h2>Ekstrakurikuler</h2>
+          </div>
+
+          <p>
+            Isi data berikut untuk mendaftar ekstrakurikuler yang kamu pilih.
+          </p>
+
+          <span class="academic-year">
+            <i class="bi bi-calendar3"></i>
+            Tahun Ajaran 2026/2027
+          </span>
+
+        </div>
+
+        <div class="motivation">
+          <span>Bersama</span>
+          <strong>Raih Prestasi</strong>
+          <span>Terbaik</span>
+          <i class="bi bi-heart-fill"></i>
+        </div>
+
+      </div>
+
+      <!-- Form -->
+      <form id="registrationForm" novalidate>
+
+        <div class="form-grid">
+
+          <!-- Nama -->
+          <div class="form-group">
+
+            <label for="nama">
+              <span class="label-icon">
+                <i class="bi bi-person"></i>
+              </span>
+              Nama Lengkap
+              <span class="required">*</span>
+            </label>
+
+            <div class="input-wrapper">
+
+              <i class="bi bi-person input-icon"></i>
+
+              <input
+                type="text"
+                id="nama"
+                name="nama"
+                placeholder="Masukkan nama lengkap"
+                autocomplete="name"
+              >
+
+            </div>
+
+            <small class="error-message"></small>
+
+          </div>
+
+          <!-- NIS -->
+          <div class="form-group">
+
+            <label for="nis">
+              <span class="label-icon">
+                <i class="bi bi-person-vcard"></i>
+              </span>
+              NIS
+              <span class="required">*</span>
+            </label>
+
+            <div class="input-wrapper">
+
+              <i class="bi bi-person-vcard input-icon"></i>
+
+              <input
+                type="text"
+                id="nis"
+                name="nis"
+                placeholder="Masukkan NIS"
+                inputmode="numeric"
+              >
+
+            </div>
+
+            <small class="error-message"></small>
+
+          </div>
+
+          <!-- Kelas -->
+          <div class="form-group">
+
+            <label for="kelas">
+              <span class="label-icon">
+                <i class="bi bi-mortarboard"></i>
+              </span>
+              Kelas
+              <span class="required">*</span>
+            </label>
+
+            <div class="input-wrapper">
+
+              <i class="bi bi-mortarboard input-icon"></i>
+
+              <select id="kelas" name="kelas">
+
+                <option value="" selected disabled>
+                  Pilih kelas
+                </option>
+
+                <option>XI PPLG 1</option>
+                <option>XI PPLG 2</option>
+                <option>XI PPLG 3</option>
+                <option>XI PPLG 4</option>
+
+                <option>X PPLG 1</option>
+                <option>X PPLG 2</option>
+                <option>X PPLG 3</option>
+                <option>X PPLG 4</option>
+
+                <option>XI TKJ 1</option>
+                <option>XI TKJ 2</option>
+                <option>XI TKJ 3</option>
+
+                <option>X TKJ 1</option>
+                <option>X TKJ 2</option>
+                <option>X TKJ 3</option>
+
+                <option>XI kuliner 1</option>
+                <option>XI kuliner 2</option>
+                <option>XI kuliner 3</option>
+
+                <option>X kuliner 1</option>
+                <option>X kuliner 2</option>
+                <option>X kuliner 3</option>
+
+                <option>XI busana 1</option>
+                <option>XI busana 2</option>
+                <option>XI busana 3</option>
+
+                <option>XI TKR 1</option>
+                <option>XI TKR 2</option>
+                <option>XI TKR 3</option>
+
+                <option>X TKR 1</option>
+                <option>X TKR 2</option>
+                <option>X TKR 3</option>
+
+                <option>XI TSM 1</option>
+                <option>XI TSM 2</option>
+                <option>XI TSM 3</option>
+
+                <option>X TSM 1</option>
+                <option>X TSM 2</option>
+                <option>X TSM 3</option>
+
+              </select>
+
+              <i class="bi bi-chevron-down select-arrow"></i>
+
+            </div>
+
+            <small class="error-message"></small>
+
+          </div>
+
+          <!-- Ekstrakurikuler -->
+          <div class="form-group">
+
+            <label for="ekstrakurikuler">
+              <span class="label-icon">
+                <i class="bi bi-people"></i>
+              </span>
+              Ekstrakurikuler yang Dipilih
+              <span class="required">*</span>
+            </label>
+
+            <div class="input-wrapper">
+
+              <i class="bi bi-people input-icon"></i>
+
+              <select id="ekstrakurikuler" name="ekstrakurikuler">
+
+                <option value="" selected disabled>
+                  Pilih ekstrakurikuler
+                </option>
+
+                <option>Jurnalistik</option>
+                <option>PMR</option>
+                <option>Paskibra</option>
+                <option>Pencak Silat</option>
+                <option>Tari</option>
+                <option>Bahasa Jepang</option>
+                <option>Bantara</option>
+                <option>Futsal</option>
+                <option>Voli</option>
+                <option>Drumband</option>
+                <option>Robbana</option>
+                <option>Rohis</option>
+                <option>Faster</option>
+                <option>Padus</option>
+
+              </select>
+
+              <i class="bi bi-chevron-down select-arrow"></i>
+
+            </div>
+
+            <small class="error-message"></small>
+
+          </div>
+
+          <!-- Nomor HP -->
+          <div class="form-group">
+
+            <label for="nomorHp">
+              <span class="label-icon">
+                <i class="bi bi-telephone"></i>
+              </span>
+              Nomor HP
+              <span class="required">*</span>
+            </label>
+
+            <div class="input-wrapper">
+
+              <i class="bi bi-telephone input-icon"></i>
+
+              <input
+                type="tel"
+                id="nomorHp"
+                name="nomorHp"
+                placeholder="Contoh: 0812 3456 7890"
+                inputmode="tel"
+              >
+
+            </div>
+
+            <small class="error-message"></small>
+
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+
+            <label for="email">
+              <span class="label-icon">
+                <i class="bi bi-envelope"></i>
+              </span>
+              Email
+              <span class="required">*</span>
+            </label>
+
+            <div class="input-wrapper">
+
+              <i class="bi bi-envelope input-icon"></i>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Contoh: nama@email.com"
+                autocomplete="email"
+              >
+
+            </div>
+
+            <small class="error-message"></small>
+
+          </div>
+
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="submit-button">
+
+          <i class="bi bi-send"></i>
+
+          <span>Daftar Sekarang</span>
+
+          <i class="bi bi-arrow-right arrow-icon"></i>
+
+        </button>
+
+      </form>
+
+      <!-- Footer -->
+      <div class="form-footer">
+
+        <i class="bi bi-shield-check"></i>
+
+        Data pendaftaran digunakan untuk keperluan administrasi sekolah.
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= NOTIFIKASI SUKSES ================= -->
+
+  <div
+    class="success-popup"
+    id="successPopup"
+    role="status"
+  >
+
+    <div class="success-icon">
+      <i class="bi bi-check-lg"></i>
+    </div>
+
+    <div>
+
+      <strong>Pendaftaran Berhasil!</strong>
+
+      <p>
+        Data kamu berhasil dikirim.
+      </p>
+
+    </div>
+
+    <button
+      id="closePopup"
+      aria-label="Tutup"
+    >
+      <i class="bi bi-x"></i>
+    </button>
+
+  </div>
+
+  <!-- ================= CHATBOT LAUNCHER ================= -->
+
+  <div id="cb-launcher">
+
+    <span id="cb-label">
+      Butuh Bantuan?
+    </span>
+
+    <button
+      id="cb-btn"
+      aria-label="Buka chatbot ekstrakurikuler"
+      aria-expanded="false"
+    >
+
+      <svg
+        width="42"
+        height="42"
+        viewBox="0 0 48 48"
+        fill="none"
+        aria-hidden="true"
+      >
+
+        <rect
+          x="9"
+          y="14"
+          width="30"
+          height="24"
+          rx="10"
+          fill="#fff"
+          opacity=".95"
+        />
+
+        <circle
+          cx="19"
+          cy="26"
+          r="3"
+          fill="#6d4aff"
+        />
+
+        <circle
+          cx="29"
+          cy="26"
+          r="3"
+          fill="#6d4aff"
+        />
+
+        <path
+          d="M20 32q4 3 8 0"
+          stroke="#6d4aff"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+
+        <path
+          d="M24 14V8"
+          stroke="#fff"
+          stroke-width="2.5"
+          stroke-linecap="round"
+        />
+
+        <circle
+          cx="24"
+          cy="7"
+          r="2.5"
+          fill="#fff"
+        />
+
+      </svg>
+
+    </button>
+
+  </div>
+
+  <!-- ================= CHATBOT WINDOW ================= -->
+
+  <section
+    id="cb-window"
+    role="dialog"
+    aria-label="Chatbot ekstrakurikuler"
+  >
+
+    <header class="cb-head">
+
+      <div class="cb-avatar">
+        🤖
+      </div>
+
+      <div>
+        <b>Asisten Ekskul</b>
+        <small>Tanya apa saja soal ekskul</small>
+      </div>
+
+      <button
+        id="cb-close"
+        aria-label="Tutup chat"
+      >
+        ×
+      </button>
+
+    </header>
+
+    <div
+      id="cb-body"
+      aria-live="polite"
+    ></div>
+
+    <div
+      id="cb-chips"
+      class="cb-chips"
+    ></div>
+
+    <form
+      id="cb-form"
+      class="cb-form"
+    >
+
+      <input
+        id="cb-input"
+        type="text"
+        placeholder="Ketik, mis. jadwal futsal..."
+        autocomplete="off"
+        aria-label="Pesan"
+      >
+
+      <button
+        id="cb-send"
+        type="submit"
+        aria-label="Kirim"
+      >
+        ➤
+      </button>
+
+    </form>
+
+  </section>
+
+
+  <!-- ==========================================================
+       JAVASCRIPT
+       ========================================================== -->
+
+  <script>
+
+    /* ==========================================================
+       DATA EKSTRAKURIKULER
+       ========================================================== */
+
+    const EKSKUL = [
+
+      {
+        nama: "Jurnalistik",
+        kunci: ["jurnalistik", "jurnal", "mading", "berita"],
+        info: "Belajar menulis berita, feature, dan mengelola mading atau media sekolah.",
+        kegiatan: "Reportase, menulis artikel, fotografi, dan editing.",
+        cocok: "Suka menulis, bertanya, dan mengamati kejadian sekitar.",
+        jadwal: "Jumat, 14.00–16.00",
+        tempat: "Ruang Redaksi / Perpustakaan"
+      },
+
+      {
+        nama: "PMR",
+        kunci: ["pmr", "palang merah", "pertolongan"],
+        info: "Palang Merah Remaja: belajar pertolongan pertama dan kepedulian sosial.",
+        kegiatan: "Latihan P3K, donor darah, bakti sosial, siaga bencana.",
+        cocok: "Peduli sesama dan siap membantu.",
+        jadwal: "Rabu, 14.00–16.00",
+        tempat: "UKS / Aula"
+      },
+
+      {
+        nama: "Paskibra",
+        kunci: ["paskibra", "pasukan pengibar", "baris"],
+        info: "Pasukan Pengibar Bendera: melatih disiplin, fisik, dan kepemimpinan.",
+        kegiatan: "Baris-berbaris, latihan pengibaran bendera, upacara.",
+        cocok: "Disiplin, tegap, dan tahan latihan fisik.",
+        jadwal: "Selasa & Sabtu, 15.00–17.00",
+        tempat: "Lapangan Upacara"
+      },
+
+      {
+        nama: "Pencak Silat",
+        kunci: ["pencak", "silat"],
+        info: "Seni bela diri tradisional Indonesia untuk kebugaran dan mental.",
+        kegiatan: "Jurus dasar, tanding, seni tunggal/ganda, kejuaraan.",
+        cocok: "Ingin sehat, percaya diri, dan berprestasi di bela diri.",
+        jadwal: "Senin, 15.00–17.00",
+        tempat: "Aula / Lapangan"
+      },
+
+      {
+        nama: "Tari",
+        kunci: ["tari", "nari", "menari", "dance"],
+        info: "Belajar tari tradisional dan kreasi untuk pentas sekolah.",
+        kegiatan: "Latihan gerak, koreografi, tampil di acara dan lomba.",
+        cocok: "Suka seni, musik, dan tampil di panggung.",
+        jadwal: "Selasa, 15.30–16.30",
+        tempat: "Lantai 3"
+      },
+
+      {
+        nama: "Bahasa Jepang",
+        kunci: ["jepang", "japan", "nihongo"],
+        info: "Belajar bahasa dan budaya Jepang dari dasar.",
+        kegiatan: "Hiragana & katakana, percakapan, budaya, lomba bahasa.",
+        cocok: "Suka anime, budaya Jepang, atau ingin belajar bahasa baru.",
+        jadwal: "Kamis, 15.00–16.30",
+        tempat: "Lab Bahasa"
+      },
+
+      {
+        nama: "Bantara",
+        kunci: ["bantara", "pramuka", "penegak"],
+        info: "Kegiatan kepramukaan tingkat Penegak Bantara: mandiri, kerja sama, dan cinta alam.",
+        kegiatan: "Tali-temali, sandi, kemah, jelajah, bakti masyarakat.",
+        cocok: "Suka petualangan dan kerja tim.",
+        jadwal: "Jumat, 14.30–16.30",
+        tempat: "Lapangan / Gudang Pramuka"
+      },
+
+      {
+        nama: "Futsal",
+        kunci: ["futsal", "bola"],
+        info: "Olahraga bola dalam ruangan dengan tim kecil, cepat, dan seru.",
+        kegiatan: "Latihan teknik, taktik, sparing, turnamen antar sekolah.",
+        cocok: "Suka sepak bola dan permainan tim.",
+        jadwal: "Senin & Kamis, 15.30–17.30",
+        tempat: "Lapangan Futsal"
+      },
+
+      {
+        nama: "Voli",
+        kunci: ["voli", "volly", "volley", "voly"],
+        info: "Olahraga bola voli untuk melatih kekompakan dan kebugaran.",
+        kegiatan: "Passing, smash, servis, latihan tanding, turnamen.",
+        cocok: "Suka olahraga tim dan lompat-lompat.",
+        jadwal: "Rabu & Sabtu, 15.00–17.00",
+        tempat: "Lapangan Voli"
+      },
+
+      {
+        nama: "Drumband",
+        kunci: ["drumband", "drum band", "marching", "drum"],
+        info: "Grup musik baris dengan alat perkusi dan melodi.",
+        kegiatan: "Latihan alat musik, formasi baris, tampil di upacara dan karnaval.",
+        cocok: "Suka musik dan kekompakan.",
+        jadwal: "Selasa & Jumat, 14.30–16.30",
+        tempat: "Lapangan / Ruang Musik"
+      },
+
+      {
+        nama: "Robbana",
+        kunci: ["robbana", "rabbana", "rebana", "hadroh", "hadrah"],
+        info: "Seni musik islami dengan rebana dan lantunan sholawat.",
+        kegiatan: "Latihan rebana, vokal sholawat, tampil di acara keagamaan.",
+        cocok: "Suka musik islami dan bernyanyi.",
+        jadwal: "Kamis, 14.00–16.00",
+        tempat: "Mushola / Aula"
+      },
+
+      {
+        nama: "Rohis",
+        kunci: ["rohis", "rohani", "kerohanian", "islam"],
+        info: "Rohani Islam: memperdalam ilmu agama dan akhlak.",
+        kegiatan: "Kajian, mentoring, peringatan hari besar Islam, bakti sosial.",
+        cocok: "Ingin belajar agama dan berteman dalam kebaikan.",
+        jadwal: "Jumat, 13.00–14.30",
+        tempat: "Mushola Sekolah"
+      },
+
+      {
+        nama: "Faster",
+        kunci: ["faster", "fastar"],
+        info: "Ekskul Faster di sekolah. Detailnya mohon dikonfirmasi ke pembina karena bisa berbeda tiap sekolah.",
+        kegiatan: "Sesuai program pembina.",
+        cocok: "Siap belajar hal baru bersama teman.",
+        jadwal: "Sabtu, 14.00–16.00",
+        tempat: "Ditentukan pembina"
+      },
+
+      {
+        nama: "Padus",
+        kunci: ["padus", "paduan suara", "vokal", "nyanyi", "koor"],
+        info: "Paduan Suara: melatih vokal, harmoni, dan kerja sama.",
+        kegiatan: "Latihan vokal, teknik pernapasan, tampil di upacara dan lomba.",
+        cocok: "Suka bernyanyi dan harmoni.",
+        jadwal: "Rabu, 14.00–16.00",
+        tempat: "Ruang Musik"
+      }
+
+    ];
+
+
+    /* ==========================================================
+       VALIDASI FORM
+       ========================================================== */
+
+    const form = document.getElementById("registrationForm");
+    const popup = document.getElementById("successPopup");
+    const closePopup = document.getElementById("closePopup");
+
+    const aturan = {
+
+      nama: v =>
+        !v
+          ? "Nama lengkap tidak boleh kosong."
+          : v.length < 3
+            ? "Nama minimal 3 karakter."
+            : "",
+
+      nis: v =>
+        !v
+          ? "NIS tidak boleh kosong."
+          : !/^\d{4,12}$/.test(v)
+            ? "NIS harus berupa angka (4–12 digit)."
+            : "",
+
+      kelas: v =>
+        v ? "" : "Silakan pilih kelas.",
+
+      ekstrakurikuler: v =>
+        v ? "" : "Silakan pilih ekstrakurikuler.",
+
+      nomorHp: v => {
+
+        if (!v) {
+          return "Nomor HP tidak boleh kosong.";
+        }
+
+        const bersih = v.replace(/[\s-]/g, "");
+
+        return /^(\\+62|62|0)8\d{8,11}$/.test(bersih)
+          ? ""
+          : "Masukkan nomor HP yang valid, mis. 081234567890.";
+
+      },
+
+      email: v =>
+        !v
+          ? "Email tidak boleh kosong."
+          : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
+            ? "Masukkan email yang valid."
+            : ""
+
+    };
+
+
+    function validasi(field) {
+
+      const aturanField = aturan[field.name];
+
+      if (!aturanField) {
+        return true;
+      }
+
+      const pesan = aturanField(field.value.trim());
+
+      const wrapper =
+        field.closest(".input-wrapper");
+
+      const error =
+        field
+          .closest(".form-group")
+          .querySelector(".error-message");
+
+      wrapper.classList.toggle(
+        "invalid",
+        Boolean(pesan)
+      );
+
+      wrapper.classList.toggle(
+        "valid",
+        !pesan
+      );
+
+      error.textContent = pesan;
+
+      return !pesan;
+    }
+
+
+    function resetStatus() {
+
+      form
+        .querySelectorAll(".input-wrapper")
+        .forEach(wrapper => {
+
+          wrapper.classList.remove(
+            "valid",
+            "invalid"
+          );
+
+        });
+
+      form
+        .querySelectorAll(".error-message")
+        .forEach(error => {
+
+          error.textContent = "";
+
+        });
+
+    }
+
+
+    /* ==========================================================
+       POPUP SUKSES
+       ========================================================== */
+
+    let timerPopup;
+
+    function tampilkanPopup() {
+
+      popup.classList.add("show");
+
+      clearTimeout(timerPopup);
+
+      timerPopup = setTimeout(() => {
+
+        popup.classList.remove("show");
+
+      }, 5000);
+
+    }
+
+
+    const fields =
+      Array.from(
+        form.querySelectorAll("input, select")
+      );
+
+
+    fields.forEach(field => {
+
+      field.addEventListener(
+        field.tagName === "SELECT"
+          ? "change"
+          : "input",
+        () => validasi(field)
+      );
+
+    });
+
+
+    form.addEventListener(
+      "submit",
+      event => {
+
+        event.preventDefault();
+
+        const hasil =
+          fields.map(validasi);
+
+        if (hasil.every(Boolean)) {
+
+          tampilkanPopup();
+
+          form.reset();
+
+          resetStatus();
+
+        } else {
+
+          fields[
+            hasil.indexOf(false)
+          ].focus();
+
+        }
+
+      }
+    );
+
+
+    closePopup.addEventListener(
+      "click",
+      () => popup.classList.remove("show")
+    );
+
+
+    /* ==========================================================
+       CHATBOT
+       ========================================================== */
+
+    const launcher =
+      document.getElementById("cb-launcher");
+
+    const tombol =
+      document.getElementById("cb-btn");
+
+    const label =
+      document.getElementById("cb-label");
+
+    const jendela =
+      document.getElementById("cb-window");
+
+    const tutup =
+      document.getElementById("cb-close");
+
+    const isiChat =
+      document.getElementById("cb-body");
+
+    const chips =
+      document.getElementById("cb-chips");
+
+    const cbForm =
+      document.getElementById("cb-form");
+
+    const input =
+      document.getElementById("cb-input");
+
+
+    let sudahSapa = false;
+
+
+    /* Buka / tutup chatbot */
+
+    function toggleChat(buka) {
+
+      const tampil =
+        typeof buka === "boolean"
+          ? buka
+          : !jendela.classList.contains("show");
+
+      jendela.classList.toggle(
+        "show",
+        tampil
+      );
+
+      launcher.classList.toggle(
+        "open",
+        tampil
+      );
+
+      tombol.setAttribute(
+        "aria-expanded",
+        tampil
+      );
+
+
+      if (tampil) {
+
+        if (!sudahSapa) {
+
+          sudahSapa = true;
+
+          tambahPesan(
+            "Halo! Aku asisten ekskul 👋\nTanya soal kegiatan, jadwal, atau lokasi ekskul. Pilih tombol di bawah atau ketik pertanyaanmu.",
+            "bot"
+          );
+
+        }
+
+        setTimeout(
+          () => input.focus(),
+          250
+        );
+
+      }
+
+    }
+
+
+    /* Tambah pesan */
+
+    function tambahPesan(
+      teks,
+      pengirim
+    ) {
+
+      const el =
+        document.createElement("div");
+
+      el.className =
+        "msg " + pengirim;
+
+      el.textContent =
+        teks;
+
+      isiChat.appendChild(el);
+
+      isiChat.scrollTop =
+        isiChat.scrollHeight;
+
+    }
+
+
+    /* Efek mengetik */
+
+    function balasBot(teks) {
+
+      const mengetik =
+        document.createElement("div");
+
+      mengetik.className =
+        "msg bot typing";
+
+      mengetik.innerHTML =
+        "<i></i><i></i><i></i>";
+
+      isiChat.appendChild(
+        mengetik
+      );
+
+      isiChat.scrollTop =
+        isiChat.scrollHeight;
+
+
+      setTimeout(() => {
+
+        mengetik.remove();
+
+        tambahPesan(
+          teks,
+          "bot"
+        );
+
+      }, 500);
+
+    }
+
+
+    /* Kirim pesan */
+
+    function kirim(teks) {
+
+      teks =
+        teks.trim();
+
+      if (!teks) return;
+
+      tambahPesan(
+        teks,
+        "user"
+      );
+
+      balasBot(
+        buatJawaban(teks)
+      );
+
+    }
+
+
+    /* Cari ekskul */
+
+    function cariEkskul(q) {
+
+      return EKSKUL.find(
+        e =>
+          e.kunci.some(
+            k => q.includes(k)
+          )
+      );
+
+    }
+
+
+    /* Jawaban berdasarkan ekskul */
+
+    function jawabanEkskul(
+      e,
+      q
+    ) {
+
+      if (
+        /jadwal|kapan|hari|jam/.test(q)
+      ) {
+
+        return `${e.nama}
+Jadwal: ${e.jadwal}
+Tempat: ${e.tempat}`;
+
+      }
+
+
+      if (
+        /tempat|lokasi|dimana|di mana/.test(q)
+      ) {
+
+        return `${e.nama} berlatih di: ${e.tempat}`;
+
+      }
+
+
+      if (
+        /kegiatan|ngapain|belajar apa|isi/.test(q)
+      ) {
+
+        return `${e.nama}
+Kegiatan: ${e.kegiatan}`;
+
+      }
+
+
+      if (
+        /cocok|syarat|siapa/.test(q)
+      ) {
+
+        return `${e.nama} cocok untuk: ${e.cocok}`;
+
+      }
+
+
+      return `${e.nama}
+${e.info}
+
+Kegiatan: ${e.kegiatan}
+Cocok untuk: ${e.cocok}
+Jadwal: ${e.jadwal}
+Tempat: ${e.tempat}
+
+Tanya lagi soal jadwal, lokasi, atau kegiatan juga boleh.`;
+
+    }
+
+
+    /* Membuat jawaban chatbot */
+
+    function buatJawaban(teks) {
+
+      const q =
+        teks.toLowerCase();
+
+      const ekskul =
+        cariEkskul(q);
+
+
+      if (ekskul) {
+
+        return jawabanEkskul(
+          ekskul,
+          q
+        );
+
+      }
+
+
+      if (
+        /^(hai|halo|hi|hello|assalamualaikum|selamat)/.test(q)
+      ) {
+
+        return "Halo! Mau tanya ekskul apa? Pilih salah satu tombol di bawah atau ketik namanya.";
+
+      }
+
+
+      if (
+        /terima kasih|makasih|thanks/.test(q)
+      ) {
+
+        return "Sama-sama! Semoga ketemu ekskul yang cocok 😊";
+
+      }
+
+
+      if (
+        /daftar ekskul|semua|list|apa saja|ada apa/.test(q)
+      ) {
+
+        return "Ekskul yang tersedia:\n• " +
+          EKSKUL
+            .map(e => e.nama)
+            .join("\n• ");
+
+      }
+
+
+      if (
+        /daftar|mendaftar|pendaftaran|cara/.test(q)
+      ) {
+
+        return 'Cara daftar: isi Formulir Pendaftaran Ekstrakurikuler (nama, NIS, kelas, nomor HP, email), pilih ekskul dari menu, lalu tekan "Daftar Sekarang".';
+
+      }
+
+
+      return 'Maaf, aku belum paham. Coba sebut nama ekskulnya, misalnya "futsal" atau "jadwal padus". Ketik "daftar ekskul" untuk melihat semuanya.';
+
+    }
+
+
+    /* ==========================================================
+       TOMBOL PILIHAN CEPAT CHATBOT
+       ========================================================== */
+
+    EKSKUL.forEach(e => {
+
+      const chip =
+        document.createElement("button");
+
+      chip.type = "button";
+
+      chip.className =
+        "cb-chip";
+
+      chip.textContent =
+        e.nama;
+
+      chip.addEventListener(
+        "click",
+        () => kirim(e.nama)
+      );
+
+      chips.appendChild(chip);
+
+    });
+
+
+    /* ==========================================================
+       EVENT CHATBOT
+       ========================================================== */
+
+    tombol.addEventListener(
+      "click",
+      () => toggleChat()
+    );
+
+
+    label.addEventListener(
+      "click",
+      () => toggleChat(true)
+    );
+
+
+    tutup.addEventListener(
+      "click",
+      () => toggleChat(false)
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (event.key === "Escape") {
+
+          toggleChat(false);
+
+        }
+
+      }
+    );
+
+
+    cbForm.addEventListener(
+      "submit",
+      event => {
+
+        event.preventDefault();
+
+        kirim(input.value);
+
+        input.value = "";
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
+```
